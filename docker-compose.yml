@@ -4,14 +4,14 @@ services:
         container_name: riftapi
         build: ./api
         ports:
-            - 4500:80
-        depends_on:
-            - db
-    db:
-        container_name: riftsql
-        image: "microsoft/mssql-server-linux"
-        ports:
-            - 1401:1433
-        environment:
-            SA_PASSWORD: "Password!"
-            ACCEPT_EULA: "Y"
+            - 5000:4005
+    #     depends_on:
+    #         - db
+    # db:
+    #     container_name: riftsql
+    #     image: "microsoft/mssql-server-linux"
+    #     ports:
+    #         - 1401:1433
+    #     environment:
+    #         SA_PASSWORD: "Password!"
+    #         ACCEPT_EULA: "Y"

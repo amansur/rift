@@ -1,8 +1,12 @@
-FROM microsoft/aspnetcore-build:latest
-COPY . /app
+FROM microsoft/aspnetcore-build:2.0.2
 WORKDIR /app
+COPY ./rift.csproj /app/rift.csproj
+# COPY . /app
 RUN ["dotnet", "restore"]
-RUN ["dotnet", "build"]
-EXPOSE 80/tcp
-RUN chmod +x ./entrypoint.sh
-CMD /bin/bash ./entrypoint.sh
+COPY ./out/* /app/
+EXPOSE 5000/tcp
+RUN ["dotnet", "rift.dll"]
+# RUN ["dotnet", "build"]
+# RUN ["dotnet", "run"]
+# RUN chmod +x ./entrypoint.sh
+# CMD /bin/bash ./entrypoint.sh
