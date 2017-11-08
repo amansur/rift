@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using rift.Data;
 
 namespace rift
 {
@@ -24,9 +25,7 @@ namespace rift
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // const string connString = "Server=localhost,1401;User Id=sa;Password=Password123!;MultipleActiveResultSets=true";
-
-            // services.AddDbContext<ApiContext>(options => options.UseSqlServer(connString));
+            services.AddDbContext<ApiContext>(options => options.UseSqlServer(Configuration.GetConnectionString("RiftMsSql")));
             services.AddMvc();
         }
 

@@ -1,17 +1,23 @@
 version: "3"
 services:
-    web:
-        container_name: riftapi
-        build: ./api
-        ports:
-            - 5000:4005
-    #     depends_on:
-    #         - db
-    # db:
-    #     container_name: riftsql
-    #     image: "microsoft/mssql-server-linux"
+    # web:
+    #     container_name: riftapi
+    #     build: 
+    #         context: ./api
+    #         dockerfile: Dockerfile
+    #     volumes:
+    #         - ./api:/app
     #     ports:
-    #         - 1401:1433
-    #     environment:
-    #         SA_PASSWORD: "Password!"
-    #         ACCEPT_EULA: "Y"
+    #         - 4999:80
+    #     # depends_on:
+    #     #     - db
+    db:
+        container_name: riftsql
+        image: "microsoft/mssql-server-linux"
+        ports:
+            - 1401:1433
+        # volumes:
+        #     - ./data:/var/opt/mssql/data
+        environment:
+            SA_PASSWORD: "Password!"
+            ACCEPT_EULA: "Y"
