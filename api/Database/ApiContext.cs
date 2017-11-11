@@ -13,6 +13,8 @@ namespace rift.Data
         {
             modelBuilder.Entity<Article>().ToTable("Article");
             modelBuilder.Entity<User>().ToTable("User");
+            modelBuilder.Entity<Topic>().ToTable("Topic");
+            modelBuilder.Entity<RiftMap>().ToTable("Map");
         }
 
         public DbSet<Article> Article { get; set; }
