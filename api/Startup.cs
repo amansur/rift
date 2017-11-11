@@ -26,6 +26,7 @@ namespace rift
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApiContext>(options => options.UseSqlServer(Configuration.GetConnectionString("RiftMsSql")));
+            //services.AddDbContext<ApiContext>(options => options.UseMySql(Configuration.GetConnectionString("RiftMariaRemote")));
             services.AddMvc();
         }
 
