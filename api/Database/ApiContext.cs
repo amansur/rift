@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using rift.Models;
+
 namespace rift.Data
 {
     public class ApiContext : DbContext
