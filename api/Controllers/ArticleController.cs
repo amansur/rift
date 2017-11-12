@@ -11,20 +11,20 @@ namespace rift.Controllers
 {
 
     [Route("api/[controller]")]
-    public class AccountController : Controller
+    public class ArticleController : Controller
     {
         private readonly ApiContext _context;
 
-        public AccountController(ApiContext context)
+        public ArticleController(ApiContext context)
         {
             _context = context;
         }
 
         // GET api/account
         [HttpGet]
-        public async Task<IEnumerable<User>> Get()
+        public async Task<IEnumerable<Article>> Get()
         {
-            return await _context.User.ToListAsync();
+            return await _context.Article.ToListAsync();
         }
 
         // GET api/account/5
