@@ -20,36 +20,47 @@ namespace rift.Controllers
             _context = context;
         }
 
-        // GET api/account
+        // GET api/topic
         [HttpGet]
         public async Task<IEnumerable<Topic>> Get()
         {
             return await _context.Topic.ToListAsync();
         }
 
-        // GET api/account/5
+        // GET api/topic/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<Topic> Get(int id)
         {
-            return "value";
+            return await _context.Topic.FindAsync(id);
         }
 
-        // POST api/account
+        // POST api/topic
         [HttpPost]
-        public void Post([FromBody]string value)
+        public async Task<bool> Post([FromBody]Topic value)
         {
+            await _context.Topic.AddAsync(value);
+            var count = await _context.SaveChangesAsync();
+            return count > 0;
         }
 
-        // PUT api/account/5
+        // PUT api/topic/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public async Task<bool> Put(int id, [FromBody]Topic value)
         {
+            var rec = await _context.Topic.FindAsync(id);
+            rec = value;
+            var count = await _context.SaveChangesAsync();
+            return count > 0;
         }
 
-        // DELETE api/account/5
+        // DELETE api/topic/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<bool> Delete(int id)
         {
+            var rec = await _context.Topic.FindAsync(id);
+            _context.Topic.Remove(rec);
+            var count = await _context.SaveChangesAsync();
+            return count > 0;
         }
     }
 }
