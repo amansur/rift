@@ -8,7 +8,7 @@ RUN ["dotnet", "restore"]
 # EXPOSE 4500/tcp
 # RUN ["dotnet", "rift.dll"]
 # ENTRYPOINT ["dotnet", "run"]
-ENTRYPOINT [ "bash" ]
+ENTRYPOINT [ "dotnet", "run" ]
 # RUN ["dotnet", "run"]
 # RUN chmod +x ./entrypoint.sh
 # CMD /bin/bash ./entrypoint.sh
