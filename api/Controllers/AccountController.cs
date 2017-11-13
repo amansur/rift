@@ -31,7 +31,7 @@ namespace rift.Controllers
         [HttpGet("{id}")]
         public async Task<User> Get(int id)
         {
-            return _context.User.FindAsync(id);
+            return await _context.User.FindAsync(id);
         }
 
         // POST api/user

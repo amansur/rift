@@ -28,6 +28,7 @@ namespace rift
             // services.AddDbContext<ApiContext>(options => options.UseSqlServer(Configuration.GetConnectionString("RiftMsSql")));
             services.AddDbContext<ApiContext>(options => options.UseMySql(Configuration.GetConnectionString("RiftMariaRemote")));
             services.AddMvc();
+            services.AddCors();
 
         }
 
@@ -38,7 +39,7 @@ namespace rift
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCors(builder => builder.WithOrigins("http://localhost:3000").AllowAnyHeader().AllowAnyMethod());
             app.UseMvc();
         }
     }
