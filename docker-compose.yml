@@ -6,18 +6,18 @@ services:
             context: ./api
             dockerfile: Dockerfile
         volumes:
-            - ./api:/api
+            - ./api:/api:ro
         ports:
             - 5000:5000
-    ui:
-        container_name: riftui
-        build:
-            context: ./ui
-            dockerfile: Dockerfile
-        ports:
-            - 3000:80
-        volumes:
-            - ./ui:/ui
+    # ui:
+    #     container_name: riftui
+    #     build:
+    #         context: ./ui
+    #         dockerfile: Dockerfile
+    #     ports:
+    #         - 3000:80
+    #     volumes:
+    #         - ./ui:/ui
     #     # depends_on:
     #     #     - db
     # db:
