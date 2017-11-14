@@ -9,6 +9,8 @@ services:
             - ./api:/api
         ports:
             - 5000:5000
+        depends_on:
+            - ui
     ui:
         container_name: riftui
         build:
@@ -18,8 +20,7 @@ services:
             - ./ui:/ui
         ports:
             - 3000:80
-    #     # depends_on:
-    #     #     - db
+        
     # db:
     #     container_name: riftsql
     #     image: "microsoft/mssql-server-linux"
