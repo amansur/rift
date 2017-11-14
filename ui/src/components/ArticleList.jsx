@@ -14,7 +14,7 @@ class ArticleList extends React.Component {
     retrieveArticles = () => {
         const { dispatch } = this.props;
 
-        fetch('http://localhost:5000/api/article', {
+        fetch('http://api.nsur.org:5000/api/article', {
             mode: 'cors',
             headers: {
                 'Accept': 'application/json',

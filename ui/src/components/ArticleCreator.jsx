@@ -27,7 +27,7 @@ class ArticleCreator extends React.Component {
 
     saveToDb = (url, title) => {
         const { dispatch } = this.props;
-        fetch('http://localhost:5000/api/article', {
+        fetch('http://api.nsur.org:5000/api/article', {
             method: 'POST',
             mode: 'cors',
             headers: {
