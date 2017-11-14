@@ -1,5 +1,5 @@
 FROM node:latest
-COPY ./package.json /ui/package.json
+COPY package.json /ui/
 WORKDIR /ui
 RUN ["npm", "install"]
 ENTRYPOINT [ "npm", "start" ]
