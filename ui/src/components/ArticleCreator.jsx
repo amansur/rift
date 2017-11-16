@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../constants/actions';
+import * as urls from '../constants/urls';
 
 class ArticleCreator extends React.Component {
     constructor(props) {
@@ -27,7 +28,7 @@ class ArticleCreator extends React.Component {
 
     saveToDb = (url, title) => {
         const { dispatch } = this.props;
-        fetch('http://api.nsur.org:5000/api/article', {
+        fetch(`${urls.apiBase}/api/article`, {
             method: 'POST',
             mode: 'cors',
             headers: {
